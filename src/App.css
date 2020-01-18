@@ -1,0 +1,7 @@
+#root {
+  padding: 50px 50px;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}

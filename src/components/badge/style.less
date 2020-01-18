@@ -1,0 +1,121 @@
+@import '../style/theme/index';
+@import '../style/mixins/index';
+
+.badge {
+  .reset-component;
+
+  position: relative;
+  display: inline-block;
+  color: unset;
+  line-height: 1;
+
+  &-count {
+    z-index: @zindex-badge;
+    min-width: @badge-height;
+    height: @badge-height;
+    padding: 0 6px;
+    color: @badge-text-color;
+    font-weight: @badge-font-weight;
+    font-size: @badge-font-size;
+    line-height: @badge-height;
+    white-space: nowrap;
+    text-align: center;
+    background: #f5222d;
+    border-radius: @badge-height / 2;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
+    a,
+    a:hover {
+      color: @badge-text-color;
+    }
+  }
+
+  &-dot {
+    z-index: @zindex-badge;
+    width: @badge-dot-size;
+    height: @badge-dot-size;
+    background: #f5222d;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
+  }
+
+  &-count,
+  &-dot,
+  .scroll-number-custom-component {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
+  }
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: antZoomBadgeIn 0.3s @ease-out-back;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomBadgeOut 0.3s @ease-in-back;
+    animation-fill-mode: both;
+  }
+
+  &-not-a-wrapper {
+    
+    .scroll-number {
+      position: relative;
+      top: auto;
+      display: block;
+    }
+
+    .badge-count {
+      transform: none;
+    }
+  }
+}
+
+@keyframes antStatusProcessing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.scroll-number {
+  overflow: hidden;
+  &-only {
+    display: inline-block;
+    height: @badge-height;
+    transition: all 0.3s @ease-in-out;
+    > p {
+      height: @badge-height;
+      margin: 0;
+    }
+  }
+
+  &-symbol {
+    vertical-align: top;
+  }
+}
+
+@keyframes antZoomBadgeIn {
+  0% {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate(50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translate(50%, -50%);
+  }
+  100% {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+}
