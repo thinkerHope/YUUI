@@ -1,11 +1,7 @@
-import { useEffect, useRef, useState, useReducer } from "react";
-
-export const usePrevious = value => {
-  const ref = useRef()
-  useEffect(() => {
-    ref.current = value
-  })
-  return ref.current
+import { useEffect, useRef, useState } from "react";
+// 管理异步函数
+export const useAsync = () => {
+    
 }
 
 // export const useDataApi = (initialUrl, initialData) => {
