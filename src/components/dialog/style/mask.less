@@ -1,0 +1,68 @@
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 999;
+  opacity: 0.4;
+  background-color: #000;
+  
+  &.hiddenMask {
+    display: none;
+  }
+}
+
+.fade-effect() {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+}
+
+.fade {
+  
+  &Enter,
+  &Appear {
+    opacity: 0;
+    .fade-effect();
+    animation-play-state: paused;
+  }
+
+  &Leave {
+    .fade-effect();
+    animation-play-state: paused;
+  }
+
+  &Enter,
+  &EnterActive,
+  &Appear,
+  &AppearActive {
+    animation-name: DialogFadeIn;
+    animation-play-state: running;
+  }
+
+  &Leave,
+  &LeaveActive {
+    animation-name: DialogFadeOut;
+    animation-play-state: running;
+  }
+}
+
+@keyframes DialogFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes DialogFadeOut {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}

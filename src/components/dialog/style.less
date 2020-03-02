@@ -1,0 +1,20 @@
+@import './style/mask.less';
+@import './style/dialog.less';
+
+.wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // fixed a layer issue with animated Tabs in the x5 kernel browser
+  transform: translateZ(1px);
+}

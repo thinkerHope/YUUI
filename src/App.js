@@ -1,11 +1,13 @@
 import React from 'react';
 import BadgeDemo from './demos/badge'
+import NDemo from './demos/message'
 import './App.css'
 
 function App() {
   return (
     <div>
-      <BadgeDemo />
+      {/* <BadgeDemo /> */}
+      <NDemo />
     </div>
   );
 }

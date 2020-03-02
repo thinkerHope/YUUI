@@ -1,0 +1,68 @@
+.modal {
+  position: relative;
+  border-radius: 36px;
+  background-color: #fff;
+
+  &.hiddenDialog {
+    display: none;
+  }
+}
+
+.effect() {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.zoom {
+
+  &Enter,
+  &Appear {
+    opacity: 0;
+    .effect();
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-play-state: paused;
+  }
+
+  &Leave {
+    .effect();
+    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    animation-play-state: paused;
+  }
+
+  &Enter,
+  &EnterActive,
+  &Appear,
+  &AppearActive {
+    animation-name: DialogZoomIn;
+    animation-play-state: running;
+  }
+
+  &Leave,
+  &LeaveActive {
+    animation-name: DialogZoomOut;
+    animation-play-state: running;
+  }
+}
+
+@keyframes DialogZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+@keyframes DialogZoomOut {
+  0% {
+    transform: scale(1, 1);
+  }
+  35% {
+    transform: scale(1.1, 1.1)
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+}
